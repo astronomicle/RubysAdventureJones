@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1009117800861444356}
   - component: {fileID: 4308805093514531800}
   - component: {fileID: -1132125783208949139}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ruby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,6 +104,7 @@ MonoBehaviour:
   speed: 5
   maxHealth: 3
   timeInvincible: 2
+  projectilePrefab: {fileID: 0}
   currentHealth: 3
 --- !u!50 &1009117800861444356
 Rigidbody2D:
@@ -183,7 +184,7 @@ GameObject:
   - component: {fileID: 1136730833577801363}
   - component: {fileID: 1136730833577801362}
   - component: {fileID: 1136730833577801361}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

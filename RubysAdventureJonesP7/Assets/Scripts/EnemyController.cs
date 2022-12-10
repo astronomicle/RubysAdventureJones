@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController2 : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     public float speed;
     public bool vertical;
@@ -11,6 +11,7 @@ public class EnemyController2 : MonoBehaviour
     Rigidbody2D rigidbody2D;
     float timer;
     int direction = 1;
+    bool broken;
 
     Animator animator;
 
@@ -30,6 +31,11 @@ public class EnemyController2 : MonoBehaviour
             direction = -direction;
             timer = changeTime;
         }
+
+        if(!broken)
+        {
+            return;
+        }
     }
 
     void FixedUpdate()
@@ -48,6 +54,11 @@ public class EnemyController2 : MonoBehaviour
             animator.SetFloat("Move X", direction);
             animator.SetFloat("Move Y", 0);
         }
+
+        if(!broken)
+        {
+            return;
+        }
         
         rigidbody2D.MovePosition(position);
     }
@@ -60,5 +71,13 @@ public class EnemyController2 : MonoBehaviour
         {
             player.ChangeHealth(-1);
         }
+
+    }
+
+    public void Fix()
+    {
+        broken = false;
+        rigidbody2D.simulated = false;
+        animator.SetTrigger("Fixed");
     }
 }
